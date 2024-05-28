@@ -1,0 +1,19 @@
+build = "build.rs"
+
+[package]
+name = "rust-ffi"
+version = "0.1.0"
+edition = "2021"
+description = "Rust FFI playground"
+keywords = ["ffi"]
+
+[lib]
+crate_type = ["cdylib"]
+
+[dependencies]
+futures = "0.3.30"
+ffi-convert = "0.6.1"
+libc = "0.2.155"
+
+[build-dependencies]
+cbindgen = "0.26.0" # used by build.rs to generate headers automatically. The headers will be consumed by cgo
