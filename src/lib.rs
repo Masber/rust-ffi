@@ -106,20 +106,6 @@ pub extern "C" fn add(left: c_int, right: c_int) -> c_int {
 
 // TEST HSM GROUP
 //
-#[derive(Debug, Default, Clone)]
-pub struct HsmGroup {
-    pub label: String,
-    pub description: Option<String>,
-    pub tags: Option<Vec<String>>,
-    pub members: Option<Member>,
-    pub exclusive_group: Option<String>,
-}
-
-#[derive(Debug, Default, Clone)]
-pub struct Member {
-    pub ids: Option<Vec<String>>,
-}
-
 /* #[repr(C)]
 #[derive(Debug)]
 pub struct CMember {
@@ -135,6 +121,20 @@ pub struct CHsmGroup {
     exclusive_group: *const libc::c_char,
     tags: *const *const libc::c_char,
 } */
+
+#[derive(Debug, Default, Clone)]
+pub struct HsmGroup {
+    pub label: String,
+    pub description: Option<String>,
+    pub tags: Option<Vec<String>>,
+    pub members: Option<Member>,
+    pub exclusive_group: Option<String>,
+}
+
+#[derive(Debug, Default, Clone)]
+pub struct Member {
+    pub ids: Option<Vec<String>>,
+}
 
 #[repr(C)]
 #[derive(CReprOf, AsRust, CDrop, RawPointerConverter, Debug)]
@@ -176,5 +176,5 @@ pub extern "C" fn get_hsm_group(
     block_on(get_future); */
 
     println!("C struct: {:?}", data);
-    println!("Rust struct: {:?}", data.as_rust());
+    // println!("Rust struct: {:?}", data.as_rust());
 }
