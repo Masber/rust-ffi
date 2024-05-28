@@ -1,19 +1,3 @@
-# Go example
+# Rust FFI playground
 
-Create project folder
-
-```bash
-mkdir helloworld-ffi && cd &_
-```
-
-Install purego
-
-``` bash
-go get github.com/ebitengine/purego
-```
-
-Run go code
-
-```
-go run main.go
-```
+Testing basic FFI and other utility libraries
